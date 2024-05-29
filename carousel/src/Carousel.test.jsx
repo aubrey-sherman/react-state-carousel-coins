@@ -2,7 +2,7 @@ import { it, expect } from "vitest";
 
 import { render, fireEvent } from "@testing-library/react";
 import Carousel from "./Carousel";
-import TEST_IMAGES from "./_testCommon.js";
+import {TEST_IMAGES, LONGER_TEST_IMAGES} from "./_testCommon.js";
 
 
 it("renders without crashing", function () {
@@ -87,20 +87,27 @@ it("left arrow gone when on first image", function () {
 it("right arrow gone when on last image", function () {
   const { container, debug } = render(
     <Carousel
-      photos={TEST_IMAGES}
+      photos={LONGER_TEST_IMAGES}
       title="images for testing"
     />
   );
 
-  const rightArrow = container.querySelector(".bi-arrow-right-circle");
+  let rightArrow = container.querySelector(".bi-arrow-right-circle");
   fireEvent.click(rightArrow);
   expect(
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
 
+  rightArrow = container.querySelector(".bi-arrow-right-circle");
   fireEvent.click(rightArrow);
   expect(
     container.querySelector('img[alt="testing image 3"]')
+  ).toBeInTheDocument();
+
+  rightArrow = container.querySelector(".bi-arrow-right-circle");
+  fireEvent.click(rightArrow);
+  expect(
+    container.querySelector('img[alt="testing image 4"]')
   ).toBeInTheDocument();
 
   expect(
