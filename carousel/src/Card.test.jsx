@@ -14,3 +14,15 @@ it("renders without crashing", function () {
     totalNum={1}
   />);
 });
+
+
+it("matches snapshot", function () {
+  const { container, debug } = render(<Card
+    caption={caption}
+    src={src}
+    currNum={1}
+    totalNum={1}
+  />);
+
+  expect(container).toMatchSnapshot();
+})
