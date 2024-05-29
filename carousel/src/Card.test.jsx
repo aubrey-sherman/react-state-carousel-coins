@@ -2,7 +2,7 @@ import { it, expect } from "vitest";
 
 import { render, fireEvent } from "@testing-library/react";
 import Card from "./Card.jsx";
-import TEST_IMAGES from "./_testCommon.js";
+import { TEST_IMAGES } from "./_testCommon.js";
 
 const { caption, src } = TEST_IMAGES[0];
 
