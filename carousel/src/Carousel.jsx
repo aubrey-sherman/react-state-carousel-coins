@@ -45,7 +45,7 @@ function Carousel({ photos, title }) {
           currNum={currCardIdx + 1}
           totalNum={total}
         />
-        {currCardIdx !== 2 && <i
+        {currCardIdx !== photos.length - 1 && <i
           className="bi bi-arrow-right-circle"
           onClick={goForward}
         />}
